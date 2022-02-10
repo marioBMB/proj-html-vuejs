@@ -378,7 +378,7 @@
     .insert .container {
         padding-top: 75px;
         color: white;
-        width: 100%;
+        width: 80%;
     }
 
 </style>
