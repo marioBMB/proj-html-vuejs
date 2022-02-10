@@ -115,11 +115,11 @@
                 
                 <SectionHeader title="Our home owners says" subtitle="" />
 
-                <div v-for="(item, index) in reviews_data" :key="index" class="col carousel">
+                <div v-for="(item, index) in reviews_data" :key="index" class="col j-center carousel">
 
                     <img class='avatar' :src="require('../../assets/img/'+item.avatar)" alt="">
-                    <h4>"{{item.text}}"</h4>
-                    <h2>{{item.name}} * {{item.role}}</h2>
+                    <h4 class='review-text'>"{{item.text}}"</h4>
+                    <h2>{{item.name}} *  {{item.role}}</h2>
                 </div>
 
             </div>
@@ -371,6 +371,9 @@
         // background-attachment: fixed;
     }
 
+    .review-text {
+        font-style: italic;
+    }
 
     .insert .container {
         padding-top: 75px;
