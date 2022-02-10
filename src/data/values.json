@@ -1,0 +1,29 @@
+[
+
+    {
+        "name": "Great Searvices",
+        "icon": "fas fa-home fa-3x",
+        "icon_bg": "#4ea4a5",
+        "desc": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia"
+
+    },
+    {
+        "name": "Highest Standars",
+        "icon": "fas fa-building fa-3x",
+        "icon_bg": "#4e6da5",
+        "desc": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia" 
+    },
+    {
+        "name": "Professionals team",
+        "icon": "fas fa-users fa-3x",
+        "icon_bg": "#f6722a",
+        "desc": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia" 
+    },
+    {
+        "name": "Creative solutions",
+        "icon": "fas fa-lightbulb fa-3x",
+        "icon_bg": "#a7cf47",
+        "desc": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia" 
+    }
+
+]

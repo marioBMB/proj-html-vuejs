@@ -1,0 +1,28 @@
+
+
+[
+
+    {
+        "name": "Planning Applications",
+        "icon": "fas fa-brain",
+        "amount": "3534"
+
+    },
+    {
+        "name": "Completed Projects",
+        "url": "#",
+        "icon": "fas fa-building",
+        "amount": "896"
+    },
+    {
+        "name": "Trained professionals",
+        "icon": "fas fa-users",
+        "amount": "172"
+    },
+    {
+        "name": "International offices",
+        "icon": "fas fa-globe",
+        "amount": "19"
+    }
+
+]

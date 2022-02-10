@@ -1,0 +1,31 @@
+
+
+[
+
+    {
+        "name": "Buildings",
+        "url": "#",
+        "icon": "fas fa-building",
+        "desc": "Quis autem vel iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+
+    },
+    {
+        "name": "Renovate",
+        "url": "#",
+        "icon": "fas fa-arrows-rotate",
+        "desc": "Quis autem vel iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+    },
+    {
+        "name": "Construct",
+        "url": "#",
+        "icon": "fas fa-home",
+        "desc": "Quis autem vel iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+    },
+    {
+        "name": "Exclusive",
+        "url": "#",
+        "icon": "fas fa-truck",
+        "desc": "Quis autem vel iure reprederit qui in ea voluptate velit esse quam nihil molestiae consequatur."
+    }
+
+]
