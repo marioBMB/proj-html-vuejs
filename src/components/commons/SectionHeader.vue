@@ -22,7 +22,7 @@
 <style lang="scss">
 
     .section-heading {
-        
+
         width: 70%;
         text-align: center;
         margin: 50px auto;

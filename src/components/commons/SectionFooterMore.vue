@@ -50,20 +50,34 @@
 
         .col:first-of-type {
             height: 100%;
-            border-top: 2px solid #eee;
+            border-top: 3px solid #eee;
+            margin-right: 50px;
         }
 
         a {
             text-decoration: none;
             color: #555;
-            font-size: 0.9rem;
+            font-size: 1rem;
             display: block;
             
         }
 
         .col:last-of-type {
             line-height: 1.8rem;
-            border-bottom: 2px solid #eee;
+            border-bottom: 3px solid #eee;
+            margin-left: 50px;
+
         }
     }
+
+    #main-middle {
+        .section-more {
+
+            .col:first-of-type, .col:last-of-type {
+                border-color: white;
+            }
+        }
+    }
+
+
 </style>

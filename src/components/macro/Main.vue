@@ -134,17 +134,30 @@
 
         <section id="news">
 
-            <SectionHeader title="Latest News" subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam nobis suscipit libero, minima repudiandae consequatur aspernatur consectetur saepe consequuntur iusto assumenda officia dolore. Placeat, accusantium. Eum vel rem modi ex!" />
+            <div class="container">
 
-            <div class="row">
+                <SectionHeader title="Latest News" subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam nobis suscipit libero, minima repudiandae consequatur aspernatur consectetur saepe consequuntur iusto assumenda officia dolore. Placeat, accusantium. Eum vel rem modi ex!" />
 
+                <div class="row">
 
-                <div class="col">
-                    <img src="" alt="">
-                    <h3 class='post-title'></h3>
-                    <div class="post-date"></div>
-                    <p class="post-text"></p>
+                    <div class="col m-2 post" v-for="(item, index) in post_data" :key="'post'+index"  >
+
+                        <div class="post-img">
+                            <img :src="require('../../assets/img/'+item.image)" alt="">
+                        </div>
+                        <div class="p-3">
+                            <header>
+                                <h2 class='post-title'>{{item.title}}</h2>
+                                <h5 class="post-date">{{item.date}}</h5>
+                            </header>
+                            <div class="post-body">
+                                <p class="post-text">{{item.text}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <SectionFooterMore link_text="View all articles" link_url="#"/>
             </div>
 
         </section>
@@ -168,6 +181,7 @@
     import stats_dataJSON from "../../data/stats.json";
     import values_dataJSON from "../../data/values.json";
     import reviews_dataJSON from "../../data/reviews.json";
+    import post_dataJSON from "../../data/posts.json";
 
 
     export default {
@@ -186,6 +200,7 @@
                 stats_data: stats_dataJSON,
                 values_data: values_dataJSON,
                 reviews_data: reviews_dataJSON,
+                post_data: post_dataJSON,
 
             }
         },
@@ -256,8 +271,6 @@
         background-position: center;
         background-repeat: no-repeat;
         height: 600px;
-        display: flex;
-        align-items: center;
 
         .container {
             width: 80%;
@@ -300,14 +313,16 @@
         margin: 0;
         top: -50px;
         background-color: inherit;
+        display: flex;
+        align-items: center;
 
         .container {
             width: 50%;
         }
 
         .section-heading {
-            margin-bottom: 0;
-            padding-bottom: 0;
+            margin: 0 auto;
+            padding: 0;
 
             h1 {
                 margin-bottom: 0;
@@ -351,10 +366,8 @@
     
 
     .insert .container {
-        padding-top: 75px;
         color: white;
         width: 80%;
-        padding-bottom: 100px;
     }
 
     .info-wrapper {
@@ -456,6 +469,7 @@
     .carousel {
 
         .content {
+
         }
         .content > *{            
             margin-bottom: 20px;
@@ -463,11 +477,59 @@
         
         .circles-container {
             position: absolute;
-            bottom: 120px;
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%);
         }
     }
+
+
+    .post {
+
+        text-rendering: optimizeLegibility;
+        text-shadow:0 0 1px transparent;
+        background: white;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+
+        header {
+
+            .post-title {
+                font-weight: 100;
+                font-size: 1.9rem;
+                margin-bottom: 0.8rem;
+                color: #333;
+
+            }
+            .post-date {
+                color: #777;
+                font-weight: 300;
+                font-size: 0.85rem;
+            }
+        }
+
+
+        header::after {
+            content: "";
+            display: block;
+            margin: 20px 0;
+            border-top: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .post-text {
+            font-size: 1.2rem;
+        }
+    }
+
+    #testimonials {
+        position: relative;
+    }
+
+
 
 
 </style>
