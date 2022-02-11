@@ -15,25 +15,26 @@
 
         <section id='services'>
 
-                <div class="container">
+            <div class="container">
 
 
-                    <SectionHeader title="Specialist in modern construction" 
-                                subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, tempore sint dicta saepe aspernatur placeat tenetur quisquam hic labore ullam voluptates!
-                                Nemo eius nihil sit fugit.Error, provident. Porro, debitis!"/>
+                <SectionHeader title="Specialist in modern construction" 
+                            subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, tempore sint dicta saepe aspernatur placeat tenetur quisquam hic labore ullam voluptates!
+                            Nemo eius nihil sit fugit.Error, provident. Porro, debitis!"/>
+        
             
-                
-                    <div class="body row">
+                <div class="body row">
 
-                        <div v-for="(item, index) in services_data" :key="index" class="info-box col">
-                            <div class="icon-box">
-                                <i :class="item.icon"></i>
-                            </div>
-                            <h2>{{item.name}}</h2>
-                            <p>{{item.desc}}</p>
+                    <div v-for="(item, index) in services_data" :key="index" class="info-box col">
+                        <div class="icon-box">
+                            <i :class="item.icon"></i>
                         </div>
+                        <h2>{{item.name}}</h2>
+                        <p>{{item.desc}}</p>
                     </div>
+
                 </div>
+            </div>
         </section>
 
         <section id="stats" class='insert'>
@@ -108,23 +109,45 @@
 
         </section>
 
-        <section id="reviews" class='insert'>
-
+        <section id="testimonials" class='insert'>
 
             <div class="container">
                 
-                <SectionHeader title="Our home owners says" subtitle="" />
+                    <SectionHeader title="Our home owners says" subtitle="" />
+                
+                <div class="carousel t-center">
 
-                <div v-for="(item, index) in reviews_data" :key="index" class="col j-center carousel">
+                    <div class="content">
 
-                    <img class='avatar' :src="require('../../assets/img/'+item.avatar)" alt="">
-                    <h4 class='review-text'>"{{item.text}}"</h4>
-                    <h2>{{item.name}} *  {{item.role}}</h2>
+                        <img class='avatar' :src="require('../../assets/img/'+reviews_data[activeIndex].avatar)" alt="">
+                        <h4 class='review-text'>"{{reviews_data[activeIndex].text}}"</h4>
+                        <h4 class='author-info'>{{reviews_data[activeIndex].name}} * {{reviews_data[activeIndex].role}}</h4>
+                    </div>
+
+                    <div class="circles-container">
+                        <div v-for="(item, index) in reviews_data.length" :key="'circle'+index" class='circle' :class="{'active': index == activeIndex}" @click="setActiveImg(index)"></div>
+                    </div>
                 </div>
 
             </div>
         </section>
 
+        <section id="news">
+
+            <SectionHeader title="Latest News" subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam nobis suscipit libero, minima repudiandae consequatur aspernatur consectetur saepe consequuntur iusto assumenda officia dolore. Placeat, accusantium. Eum vel rem modi ex!" />
+
+            <div class="row">
+
+
+                <div class="col">
+                    <img src="" alt="">
+                    <h3 class='post-title'></h3>
+                    <div class="post-date"></div>
+                    <p class="post-text"></p>
+                </div>
+            </div>
+
+        </section>
     </div>
 
     <div id="main-bottom">
@@ -158,11 +181,17 @@
 
             return {
 
+                activeIndex: 0,
                 services_data: services_dataJSON,
                 stats_data: stats_dataJSON,
                 values_data: values_dataJSON,
                 reviews_data: reviews_dataJSON,
 
+            }
+        },
+        methods: {
+            setActiveImg(index){
+                this.activeIndex = index;
             }
         },
         created(){
@@ -210,17 +239,166 @@
             font-variant: small-caps;
             font-size: 0.9rem;
             padding: 15px 30px;
+
+            &:hover {
+                background-color: white !important;
+                border-color: black;
+                color: black !important;
+            }
         }
     }
 
+
+
+    section#stats {
+        background-image: url(../../assets/img/home-244125289.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 600px;
+        display: flex;
+        align-items: center;
+
+        .container {
+            width: 80%;
+        }
+    }
+
+    section#stats .info-wrapper {
+        color: #fed03d;
+        text-transform: uppercase;
+    } 
+
+
+    section#testimonials {
+        background-image: url(../../assets/img/home-parallax-144609983.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0% 20%;
+        // background-position: 0% -120%;
+        min-height: 700px;
+        background-attachment: fixed;
+
+        .container {
+            width: 50%;
+        }
+
+        .review-text {
+            font-style: italic;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .author-info {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    .insert {
+        position: relative;
+        margin: 0;
+        top: -50px;
+        background-color: inherit;
+
+        .container {
+            width: 50%;
+        }
+
+        .section-heading {
+            margin-bottom: 0;
+            padding-bottom: 0;
+
+            h1 {
+                margin-bottom: 0;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .insert::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: inherit;
+        top: -50px;
+        width: 130vw;
+        height: 150px;
+        border-radius: 50% / 100%;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .insert + section {
+        position: relative;
+        margin-top: 0;
+    }
+
+    .insert + section::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -200px;
+        transform: translateX(-50%);
+        background-color: inherit;
+        width: 130vw;
+        height: 150px;
+        border-radius: 50% / 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+
+    .insert .container {
+        padding-top: 75px;
+        color: white;
+        width: 80%;
+        padding-bottom: 100px;
+    }
+
+    .info-wrapper {
+        
+        text-align: center;
+        height: 170px;
+        display: flex;
+        justify-content: space-evenly !important;
+        margin: 0;
+
+        h4 {
+            color: white;
+            flex-wrap: nowrap;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .svg-inline--fa{
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 3.5rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+        }
+    }
+
+    .img-gallery {
+
+        .col {
+            flex: 0 0 auto;
+            margin: 0 20px;
+        }
+    }
 
 
     .icon-box {
         color: #777;
         border: 1px solid black; 
         border-radius: 50%;
-        min-width: 50px;
-        min-height: 50px;
+        min-width: 40px;
+        min-height: 40px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -259,126 +437,37 @@
     }
 
 
+    .circle {
+
+        width: 15px;
+        height: 15px;
+        margin: 20px 5px;
+        display: inline-block;
+        border: 1px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .circle.active {
+        background-color: white;
+    }
 
 
-    #stats {
-        background-image: url(../../assets/img/home-244125289.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 600px;
-        display: flex;
-        align-items: center;
+    .carousel {
 
-        .container {
-            width: 80%;
+        .content {
         }
-    }
-
-    .insert {
-        position: relative;
-        margin: 0 !important;
-        top: -50px;
-        background-color: inherit;
-
-        .container {
-            width: 50%;
+        .content > *{            
+            margin-bottom: 20px;
         }
-    }
-
-    .insert::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: inherit;
-        top: -50px;
-        width: 130vw;
-        height: 150px;
-        border-radius: 50% / 100%;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-
-    .insert + section {
-        position: relative;
-        margin-top: 0;
-    }
-
-    .insert + section::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: -200px;
-        transform: translateX(-50%);
-        background-color: inherit;
-        width: 130vw;
-        height: 150px;
-        border-radius: 50% / 100%;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-
-    #stats .info-wrapper {
-        color: #fed03d;
-        text-transform: uppercase;
-    } 
-
-    .info-wrapper {
         
-        text-align: center;
-        height: 170px;
-        display: flex;
-        justify-content: space-evenly !important;
-        margin: 0;
-
-        h4 {
-            color: white;
-            flex-wrap: nowrap;
-            font-weight: 400;
-            font-size: 0.9rem;
-        }
-
-        .svg-inline--fa{
-            font-size: 4rem;
-        }
-
-        h2 {
-            font-weight: 400;
-            font-size: 3.5rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
-
+        .circles-container {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 
-    .img-gallery {
-
-        .col {
-            flex: 0 0 auto;
-            margin: 0 20px;
-        }
-    }
-
-
-    #reviews {
-        background-image: url(../../assets/img/home-parallax-144609983.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 0% 20%;
-        // background-position: 0% -120%;
-        min-height: 650px;
-        // background-attachment: fixed;
-    }
-
-    .review-text {
-        font-style: italic;
-    }
-
-    .insert .container {
-        padding-top: 75px;
-        color: white;
-        width: 80%;
-    }
 
 </style>

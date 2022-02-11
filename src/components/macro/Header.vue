@@ -92,12 +92,9 @@
         li {
             position: relative;
 
-            &.btn {
-              background-color: #fed03d;
-                a {
-                  display: block;
-                  padding: 10px 20px;
-                }
+            &:not(.btn):hover {
+              top: -2px;
+              font-weight: 900 !important;
             }
 
             &:not(.btn).active {
@@ -123,6 +120,14 @@
                   font-weight: 400;
                   display: block;
                   height: 100%;
+                }
+            }
+
+            &.btn {
+              background-color: #fed03d;
+                a {
+                  display: block;
+                  padding: 10px 20px;
                 }
             }
 

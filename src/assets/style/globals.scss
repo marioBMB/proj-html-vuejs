@@ -37,11 +37,15 @@ a.btn {
     border: 1px solid #555;
 }
 
-a.btn.reverse-bg {
+a.btn.reverse-bg, a.btn:hover {
     color: white !important;
     background-color: #333333 !important;
 }
 
+a.btn.reverse-bg:hover {
+    background-color: #fed03d !important;
+    color: black !important;
+}
 
 p {
     line-height: 1.9;
@@ -89,7 +93,26 @@ section {
 
 .j-center {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    text-align: center;
+}
+
+
+.j-space-between {
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.j-space-evenly {
+    display: flex;
+    justify-content: space-evenly !important;
+}
+
+
+.a-bottom {
+    align-self: flex-end;
+}
+
+.t-center {
     text-align: center;
 }
