@@ -164,7 +164,23 @@
     </div>
 
     <div id="main-bottom">
-        
+
+        <section id="partners">
+
+            <div class="container">
+
+                <SectionHeader title="Trusted Partners" subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam nobis suscipit libero, minima repudiandae consequatur aspernatur consectetur saepe consequuntur iusto assumenda officia dolore. Placeat, accusantium. Eum vel rem modi ex!" />
+
+                <div class="row j-center">
+
+                    <div class="col img-wrapper p-2" v-for="(item,index) in partners_data" :key="'partner'+index">
+
+                        <img :src="require('../../assets/img/'+item.logo)" :alt="item.name+' logo'">
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </div>
 
   </main>
@@ -182,6 +198,7 @@
     import values_dataJSON from "../../data/values.json";
     import reviews_dataJSON from "../../data/reviews.json";
     import post_dataJSON from "../../data/posts.json";
+    import partners_dataJSON from "../../data/partners.json";
 
 
     export default {
@@ -201,6 +218,7 @@
                 values_data: values_dataJSON,
                 reviews_data: reviews_dataJSON,
                 post_data: post_dataJSON,
+                partners_data: partners_dataJSON,
 
             }
         },
@@ -266,7 +284,7 @@
 
 
     section#stats {
-        background-image: url(../../assets/img/home-244125289.jpg);
+        background-image: url('../../assets/img/home-244125289.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -284,7 +302,7 @@
 
 
     section#testimonials {
-        background-image: url(../../assets/img/home-parallax-144609983.jpg);
+        background-image: url('../../assets/img/home-parallax-144609983.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 0% 20%;
@@ -530,6 +548,14 @@
     }
 
 
+    .img-wrapper {
+        width: 100%;
+        
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
 
 
 </style>
